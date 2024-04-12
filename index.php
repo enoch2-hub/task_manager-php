@@ -20,6 +20,26 @@
         <!-- Display existing tasks -->
         <h2>Task List</h2>
         <?php include 'view_tasks.php'; ?>
+
+
+
+        
+
+        <?php
+    // Loop through tasks array and display each task
+    foreach ($tasks as $task) {
+        echo "<tr>";
+        echo "<td>" . $task['id'] . "</td>";
+        echo "<td>" . $task['task_description'] . "</td>";
+        echo "<td>
+                <form action='delete_task.php' method='post'>
+                    <input type='hidden' name='id' value='" . $task['id'] . "'>
+                    <button type='submit'>Delete</button>
+                </form>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
     </div>
 </body>
 </html>
